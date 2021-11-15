@@ -47,9 +47,17 @@ class Image:
     #   on retourne une nouvelle image binarisee
     #==============================================================================
     def binarisation(self, S):
-        pass
-
-
+        im_bin = Image()
+        im_bin.set_pixels(np.zeros((self.H, self.W), dtype=np.uint8))
+        
+        for i in range(self.H):
+            for c in range (self.W):
+                if self.pixels[i][c] <= S:
+                    im_bin.pixels [i][c]=0
+                else
+                    im_bin.pixels [i][c]=255
+        return im_bin
+                
     #==============================================================================
     # Dans une image binaire contenant une forme noire sur un fond blanc
     # la methode 'localisation' permet de limiter l'image au rectangle englobant
